@@ -268,7 +268,7 @@
                 <h2 class="heading-2">{{ info.home.location }}</h2>
             </section>
             <template v-for="(item, index) in info.projects">
-                <section v-if="show[index + 1]" :class="mainContentClass">
+                <section v-show="show[index + 1]" :class="mainContentClass">
                     <section class="project--heading">
                         <h1 class="heading-hero">{{ item.name }}</h1>
 

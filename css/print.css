@@ -2,8 +2,14 @@
 .btn-next,
 .btn-prev,
 .main--menu--mobile,
+.heading--links,
+.btn-nav,
 img {
     display: none;
+}
+
+* {
+    font-family: sans-serif;
 }
 
 .main {
@@ -12,20 +18,39 @@ img {
 }
 
 .main--content {
+    display: block !important;
     background: white;
 }
 
 h1,
-h3 {
+h3,
+h2 {
+    font-family: "IBM Plex Mono", sans-serif;
     color: black;
     animation: none;
 }
 
+h1:first-of-type {
+    font-size: 2em;
+    border-bottom: 2px solid black;
+}
+
 h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 1.5em;
+    border-bottom: 1px solid black;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+h2:last-of-type {
+    margin-bottom: 10px;
 }
 
 h3 {
+    margin: 0;
     font-size: 1.5em;
 }
