@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -407,13 +407,15 @@
                 </button>
                 <div class="theme">
                     <h3>Light</h3>
-                    <div class="theme--toggle" @click="themeSwitch">
+                    <div class="theme--toggle">
                         <input
                             id="check"
                             aria-label="Switch themes"
                             type="checkbox"
                             name="theme--switcher"
                             class="theme--check--switch"
+                            @click="themeSwitch"
+                            v-model="themeDark"
                         />
                         <span class="ball"></span>
                     </div>

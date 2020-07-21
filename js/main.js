@@ -74,6 +74,7 @@ new Vue({
         transitionName: "bounce-next",
         menuOpen: false,
         mainContentClass: "main--content",
+        themeDark: true,
     },
     methods: {
         toggleP: function () {
@@ -150,17 +151,28 @@ new Vue({
         },
         themeSwitch: function () {
             const html = document.querySelector("html");
-            const themeToggleBtn = document.getElementsByClassName(
-                "theme--check--switch"
-            )[0];
 
             if (html.getAttribute("data-theme") === "light") {
                 html.setAttribute("data-theme", "dark");
+                this.themeDark = false;
                 localStorage.setItem("theme", "dark");
             } else {
                 html.setAttribute("data-theme", "light");
+                this.themeDark = true;
                 localStorage.setItem("theme", "light");
             }
         },
+    },
+    beforeMount() {
+        const theme = localStorage.getItem("theme");
+        const html = document.querySelector("html");
+
+        if (theme === "dark") {
+            this.themeDark = true;
+            html.setAttribute("data-theme", "dark");
+        } else {
+            this.themeDark = false;
+            html.setAttribute("data-theme", "light");
+        }
     },
 });
