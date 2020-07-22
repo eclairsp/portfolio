@@ -99,7 +99,7 @@ body {
     font-size: 1em;
     width: 95vw;
     height: 90vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--background);
     border: 3px solid var(--secondary);
     overflow-y: hidden;
     overflow-x: hidden;
@@ -339,6 +339,7 @@ li {
     padding: 10px;
     padding-top: 30px;
     border-top: 3px solid var(--secondary);
+    z-index: 3;
 }
 
 .btn-next {
