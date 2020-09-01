@@ -69,10 +69,9 @@
         <!-- CSS -->
         <link rel="stylesheet" media="screen" href="./css/main.css" />
         <link rel="stylesheet" media="print" href="./css/print.css" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap"
-            rel="stylesheet"
-        />
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+        </style>
     </head>
     <body>
         <main class="main">
@@ -123,7 +122,7 @@
                         </svg>
                     </li>
                     <li class="social--link">
-                        <a target="_blank" href="https://github.com/eclairsp">
+                        <a target="_blank" rel="noreferrer" href="https://github.com/eclairsp">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="512"
@@ -138,7 +137,7 @@
                         </a>
                     </li>
                     <li class="social--link">
-                        <a target="_blank" href="https://codepen.io/eclairsp">
+                        <a target="_blank" rel="noreferrer" href="https://codepen.io/eclairsp">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 512 512"
@@ -211,7 +210,7 @@
                 </ul>
                 <ul class="social--list">
                     <li class="social--link">
-                        <a target="_blank" href="https://github.com/eclairsp">
+                        <a target="_blank" rel="noreferrer" href="https://github.com/eclairsp">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="512"
@@ -226,7 +225,7 @@
                         </a>
                     </li>
                     <li class="social--link">
-                        <a target="_blank" href="https://codepen.io/eclairsp">
+                        <a target="_blank" rel="noreferrer" href="https://codepen.io/eclairsp">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 512 512"
@@ -273,7 +272,7 @@
                         <h1 class="heading-hero">{{ item.name }}</h1>
 
                         <div class="heading--links">
-                            <a :href="item.liveLink" target="_blank">
+                            <a :href="item.liveLink" target="_blank" rel="noreferrer">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"
@@ -309,7 +308,7 @@
                                     />
                                 </svg>
                             </a>
-                            <a :href="item.gitLink" target="_blank">
+                            <a :href="item.gitLink" target="_blank" rel="noreferrer">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"

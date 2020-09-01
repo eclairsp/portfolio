@@ -95,7 +95,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "IBM Plex Mono", sans-serif, monospace;
     font-size: 1em;
     width: 95vw;
     height: 90vh;
