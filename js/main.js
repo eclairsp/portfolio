@@ -55,7 +55,7 @@ const info = {
             liveLink: "https://recinst.netlify.app",
             list: [
                 "We used a spectrogram made from the song for the CNN model.",
-                "The database we used is IRMAS dataset.",
+                "The dataset we used is IRMAS dataset.",
                 "The backend is not hosted but code can be found on GitHub.",
             ],
         },
