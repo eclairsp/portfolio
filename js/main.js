@@ -13,7 +13,7 @@ const info = {
             description:
                 "App to get Covid-19 details for various countries with graphs showing historical data.",
             gitLink: "https://github.com/eclairsp/covid-dashboard",
-            liveLink: "https://coviddb.netlify.app/",
+            liveLink: "https://covid.prab.tech/",
             list: [
                 "Simple UI made using material-react to focus on important information.",
                 "Table manipulation using material-table and custom implementation.",
@@ -26,7 +26,7 @@ const info = {
             description:
                 "Flixi is a web app to get information about movies and TV-Shows. You can also login and create a watchlist for stuff that you want to wacth.",
             gitLink: "https://github.com/eclairsp/flix-react",
-            liveLink: "https://flixi.netlify.app/",
+            liveLink: "https://flixi.prab.tech/",
             list: [
                 "Local storage based cache for search queries.",
                 "JWT for user sessions.",
@@ -39,7 +39,7 @@ const info = {
             description:
                 "RPSLS is a simple game of Rock, Paper, Scissor, Lizard and Spock.",
             gitLink: "https://github.com/eclairsp/RPSLS",
-            liveLink: "https://rpsls.netlify.app/#%F0%9F%93%84",
+            liveLink: "https://rpsls.prab.tech/",
             list: [
                 "The extension was popularised by The big bang theory.",
                 "It gives some extra flair to the already popular Rock, Paper, Scissors.",
@@ -52,7 +52,7 @@ const info = {
             description:
                 "RecInst is a school project. In this we implemented a model which tries to find the instruments playing in a song.",
             gitLink: "https://github.com/eclairsp/RecInst-api",
-            liveLink: "https://recinst.netlify.app",
+            liveLink: "https://recinst.prab.tech/",
             list: [
                 "We used a spectrogram made from the song for the CNN model.",
                 "The dataset we used is IRMAS dataset.",

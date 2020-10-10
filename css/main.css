@@ -89,15 +89,19 @@ body {
     height: 100vh;
 }
 
+.background {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fdfcff33;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23101010' fill-opacity='.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 .main {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     font-family: "IBM Plex Mono", sans-serif, monospace;
     font-size: 1em;
-    width: 95vw;
+    width: 80vw;
     height: 90vh;
     background: var(--background);
     border: 3px solid var(--secondary);
@@ -109,6 +113,7 @@ body {
     grid-template-areas:
         "menu content"
         "menu btnNav";
+    border-radius: 20px;
 }
 
 .main--menu {
@@ -157,6 +162,7 @@ body {
     scroll-behavior: smooth;
     overflow-y: auto;
     overflow-x: hidden;
+    border-radius: 20px;
 }
 
 .description {
@@ -242,6 +248,7 @@ li {
     margin: 20px;
     display: flex;
     align-items: center;
+    border-radius: 10px;
 }
 
 .list--link,
@@ -310,6 +317,7 @@ li {
     transition: all 0.3s ease;
 
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .btn--submit {
@@ -329,6 +337,7 @@ li {
 }
 
 .btn-nav {
+    position: absolute;
     grid-area: btnNav;
     display: flex;
     justify-content: space-between;
@@ -491,6 +500,7 @@ li {
 
 @media only screen and (min-device-width: 0) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
     .main {
+        width: 90vw;
         grid-template-rows: 15% 75% 10%;
         grid-template-columns: 100%;
         grid-template-areas:
