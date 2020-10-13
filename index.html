@@ -70,12 +70,12 @@
         <link rel="stylesheet" media="screen" href="./css/main.css" />
         <link rel="stylesheet" media="print" href="./css/print.css" />
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+            @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap");
         </style>
     </head>
     <body>
         <div class="background"></div>
-        <main class="main">
+        <main id="main" :class="mainClass">
             <nav class="main--menu--mobile">
                 <ul class="social--list">
                     <li @click="menu" class="social--link" id="btn">
@@ -123,7 +123,11 @@
                         </svg>
                     </li>
                     <li class="social--link">
-                        <a target="_blank" rel="noreferrer" href="https://github.com/eclairsp">
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href="https://github.com/eclairsp"
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="512"
@@ -138,7 +142,11 @@
                         </a>
                     </li>
                     <li class="social--link">
-                        <a target="_blank" rel="noreferrer" href="https://codepen.io/eclairsp">
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href="https://codepen.io/eclairsp"
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 512 512"
@@ -177,41 +185,57 @@
                 <nav v-if="menuOpen" class="main--menu">
                     <ul>
                         <li @click="menuNav(0)">Home</li>
-                        <li @click="menuNav(1)">Projects</li>
-                        <ul>
-                            <li
-                                @click="menuNav(index+1)"
-                                v-for="(item, index) in info.projects"
-                            >
-                                {{ item.name }}
-                            </li>
-                        </ul>
-                        <li @click="menuNav('final')">
-                            Get in touch
-                        </li>
+                        <li @click="showProjects = !showProjects">Projects</li>
+                        <transition name="sub-menu">
+                            <ul v-if="showProjects">
+                                <li
+                                    @click="menuNav(index+1)"
+                                    v-for="(item, index) in info.projects"
+                                >
+                                    {{ item.name }}
+                                </li>
+                            </ul>
+                        </transition>
+                        <li @click="menuNav('final')">Get in touch</li>
                     </ul>
                 </nav>
             </transition>
             <nav class="main--menu main--menu--desktop">
                 <ul class="menu--list">
-                    <li :class="listClass(0)" @click="menuNav(0)">Home</li>
-                    <li :class="listClass(1)" @click="menuNav(1)">Projects</li>
-                    <ul>
-                        <li
-                            :class="listClass(index+1)"
-                            @click="menuNav(index+1)"
-                            v-for="(item, index) in info.projects"
-                        >
-                            {{ item.name }}
-                        </li>
-                    </ul>
-                    <li :class="listClass('final')" @click="menuNav('final')">
+                    <li :class="listClass(0)" @click="menuNav(0, 'desktop')">
+                        Home
+                    </li>
+                    <li
+                        :class="listClass(show.length)"
+                        @click="showProjects = !showProjects"
+                    >
+                        Projects
+                    </li>
+                    <transition name="sub-menu">
+                        <ul class="sub--menu" v-if="showProjects">
+                            <li
+                                :class="listClass(index+1)"
+                                @click="menuNav(index+1, 'desktop')"
+                                v-for="(item, index) in info.projects"
+                            >
+                                {{ item.name }}
+                            </li>
+                        </ul>
+                    </transition>
+                    <li
+                        :class="listClass('final')"
+                        @click="menuNav('final', 'desktop')"
+                    >
                         Get in touch
                     </li>
                 </ul>
                 <ul class="social--list">
                     <li class="social--link">
-                        <a target="_blank" rel="noreferrer" href="https://github.com/eclairsp">
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href="https://github.com/eclairsp"
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="512"
@@ -226,7 +250,11 @@
                         </a>
                     </li>
                     <li class="social--link">
-                        <a target="_blank" rel="noreferrer" href="https://codepen.io/eclairsp">
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href="https://codepen.io/eclairsp"
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 512 512"
@@ -273,7 +301,11 @@
                         <h1 class="heading-hero">{{ item.name }}</h1>
 
                         <div class="heading--links">
-                            <a :href="item.liveLink" target="_blank" rel="noreferrer">
+                            <a
+                                :href="item.liveLink"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"
@@ -309,7 +341,11 @@
                                     />
                                 </svg>
                             </a>
-                            <a :href="item.gitLink" target="_blank" rel="noreferrer">
+                            <a
+                                :href="item.gitLink"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"
@@ -347,7 +383,7 @@
                     </picture>
                 </section>
             </template>
-            <section v-if="show[5]" :class="mainContentClass">
+            <section v-if="show[show.length - 1]" :class="mainContentClass">
                 <h1 class="heading-hero">Get in touch</h1>
                 <h2 class="heading-3">Email - {{ info.contact.email }}</h2>
                 <form
@@ -356,21 +392,13 @@
                     method="POST"
                     data-netlify="true"
                 >
-                    <label>
-                        Your Name:
-                    </label>
+                    <label> Your Name: </label>
                     <input class="text--input" type="text" name="name" />
-                    <label>
-                        Your Email:
-                    </label>
+                    <label> Your Email: </label>
                     <input class="text--input" type="email" name="email" />
-                    <label>
-                        Message:
-                    </label>
+                    <label> Message: </label>
                     <input class="text--input" type="text" name="message" />
-                    <button class="btn btn--submit" type="submit">
-                        Send
-                    </button>
+                    <button class="btn btn--submit" type="submit">Send</button>
                 </form>
             </section>
             <nav class="btn-nav">
@@ -456,6 +484,7 @@
         </main>
     </body>
 
-    <script src="js/vue.min.js"></script>
+    <!-- <script src="js/vue.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/main.js"></script>
 </html>

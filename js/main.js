@@ -4,7 +4,7 @@ const info = {
         designation: "Fullstack Dev",
         location: "Navi Mumbai, India",
         about:
-            "Trying to learn, always. Currently learning Vue.js. This site was made as an effort to learn the basics of it.",
+            "I work a lot on hobby projects to learn new technologies. Currently pursuing my Masters in Applied Computing from University of Windsor. Always online on Steam 🎮😀.",
     },
     projects: [
         {
@@ -34,6 +34,19 @@ const info = {
             ],
         },
         {
+            imageName: "polr",
+            name: "polr",
+            description:
+                "Create polls, share them to get votes in real time. For private polls, set a password.",
+            gitLink: "https://github.com/eclairsp/polr",
+            liveLink: "https://polrr.herokuapp.com/",
+            list: [
+                "Front end made unsing Vue and Nuxt.",
+                "Backend in a GraphQL API. API code can be found on GitHub",
+                "Two themes, dark and light.",
+            ],
+        },
+        {
             imageName: "rpsls",
             name: "RPSLS",
             description:
@@ -41,8 +54,8 @@ const info = {
             gitLink: "https://github.com/eclairsp/RPSLS",
             liveLink: "https://rpsls.prab.tech/",
             list: [
-                "The extension was popularised by The big bang theory.",
-                "It gives some extra flair to the already popular Rock, Paper, Scissors.",
+                "The extension was popularised by The big bang theory. It gives some extra flair to the already popular Rock, Paper, Scissors.",
+                "Play against computer.",
                 "Made using React.",
             ],
         },
@@ -66,14 +79,16 @@ const info = {
 };
 
 new Vue({
-    el: ".main",
+    el: "#main",
     data: {
         info: info,
         num: 0,
-        show: [true, false, false, false, false, false],
+        show: Array(info.projects.length + 2).fill(false),
+        showProjects: false,
         transitionName: "bounce-next",
         menuOpen: false,
         mainContentClass: "main--content",
+        mainClass: "main",
         themeDark: true,
     },
     methods: {
@@ -88,8 +103,10 @@ new Vue({
                 }
                 this.$set(this.show, this.num, !this.show[this.num]);
                 this.mainContentClass = "main--content enter";
+                this.mainClass = "main";
             }, 1000);
             this.mainContentClass = "main--content exit";
+            this.mainClass = "main main--swing--up";
         },
         toggleN: function () {
             setTimeout(() => {
@@ -103,15 +120,19 @@ new Vue({
 
                 this.$set(this.show, this.num, !this.show[this.num]);
                 this.mainContentClass = "main--content enter-1";
+                this.mainClass = "main";
             }, 1000);
             this.mainContentClass = "main--content exit-1";
+            this.mainClass = "main main--swing--down";
         },
         menu: function () {
             this.menuOpen = !this.menuOpen;
+            if (!this.menuOpen) {
+                this.showProjects = false;
+            }
         },
-        menuNav: function (i) {
+        menuNav: function (i, type) {
             i === "final" ? (i = this.show.length - 1) : (i = i);
-
             this.show.forEach((element, index) => {
                 if (index === i) {
                     this.$set(this.show, index, true);
@@ -126,6 +147,9 @@ new Vue({
             }, 500);
             this.mainContentClass = "main--content attention";
             this.menuOpen = false;
+            if (type != "desktop") {
+                this.showProjects = false;
+            }
         },
         listClass: function (i) {
             i === "final" ? (i = this.show.length - 1) : (i = i);
@@ -164,6 +188,7 @@ new Vue({
         },
     },
     beforeMount() {
+        this.$set(this.show, 0, true);
         const theme = localStorage.getItem("theme");
         const html = document.querySelector("html");
 

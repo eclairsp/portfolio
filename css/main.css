@@ -70,14 +70,13 @@ body {
     background: rgb(74, 20, 140);
     background: linear-gradient(
         -45deg,
-        var(--color-1) 0%,
-        var(--color-2) 25%,
-        var(--color-3) 50%,
-        var(--color-4) 75%,
-        var(--color-1) 100%
+        var(--color-1),
+        var(--color-2),
+        var(--color-3),
+        var(--color-4)
     );
-    background-size: 200% 200%;
-    animation: gradient 5s infinite;
+    background-size: 400% 400%;
+    animation: gradient 2s infinite;
     color: var(--secondary);
 }
 
@@ -114,6 +113,16 @@ body {
         "menu content"
         "menu btnNav";
     border-radius: 20px;
+}
+
+.main--swing--down {
+    animation: swing-down 1s;
+    transition-timing-function: cubic-bezier(0, 1.48, 1, -0.58);
+}
+
+.main--swing--up {
+    animation: swing-up 1s;
+    transition-timing-function: cubic-bezier(0, 1.48, 1, -0.58);
 }
 
 .main--menu {
@@ -237,6 +246,8 @@ body {
 
 ul ul {
     padding-left: 40px;
+    overflow-y: auto;
+    max-height: 30vh;
 }
 
 li {
@@ -408,6 +419,15 @@ li {
     }
 }
 
+.sub-menu-enter-active,
+.sub-menu-leave-active {
+    transform: translateX(0);
+    transition: transform 0.2s ease;
+}
+.sub-menu-enter, .sub-menu-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    transform: translateX(-140%);
+}
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -459,7 +479,7 @@ li {
     }
 }
 
-@media only screen and (min-device-width: 150px) and (max-device-width: 360px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-device-width: 0px) and (max-device-width: 360px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
     .main--menu--desktop {
         display: none;
     }
@@ -468,6 +488,10 @@ li {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+    }
+
+    ul ul {
+        max-height: 100%;
     }
 
     .heading-hero {
@@ -498,7 +522,7 @@ li {
     }
 }
 
-@media only screen and (min-device-width: 0) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-device-width: 361px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
     .main {
         width: 90vw;
         grid-template-rows: 15% 75% 10%;
@@ -528,6 +552,10 @@ li {
         overflow-y: auto;
         border-bottom: 3px solid var(--secondary);
         border-top: 3px solid var(--secondary);
+    }
+
+    ul ul {
+        max-height: 100%;
     }
 
     .main--menu > ul {
@@ -832,4 +860,22 @@ li {
 
 .theme--check--switch:checked ~ .ball {
     transform: translateX(40px);
+}
+
+@keyframes swing-up {
+    from {
+        transform: perspective(0px) rotateX(0deg);
+    }
+    to {
+        transform: perspective(850px) rotateX(-7.5deg);
+    }
+}
+
+@keyframes swing-down {
+    from {
+        transform: perspective(0) rotateX(0deg);
+    }
+    to {
+        transform: perspective(850px) rotateX(7.5deg);
+    }
 }
