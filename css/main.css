@@ -862,20 +862,26 @@ li {
     transform: translateX(40px);
 }
 
-@keyframes swing-up {
-    from {
+@keyframes swing-down {
+    0% {
         transform: perspective(0px) rotateX(0deg);
     }
-    to {
+    50% {
         transform: perspective(850px) rotateX(-7.5deg);
+    }
+    100% {
+        transform: perspective(0px) rotateX(0deg);
     }
 }
 
-@keyframes swing-down {
-    from {
+@keyframes swing-up {
+    0% {
         transform: perspective(0) rotateX(0deg);
     }
-    to {
+    50% {
         transform: perspective(850px) rotateX(7.5deg);
+    }
+    100% {
+        transform: perspective(0px) rotateX(0deg);
     }
 }
