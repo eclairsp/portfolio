@@ -479,7 +479,7 @@ li {
     }
 }
 
-@media only screen and (min-device-width: 0px) and (max-device-width: 360px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-width: 0px) and (max-width: 360px) {
     .main--menu--desktop {
         display: none;
     }
@@ -522,7 +522,7 @@ li {
     }
 }
 
-@media only screen and (min-device-width: 361px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-width: 360px) and (max-width: 1024px) {
     .main {
         width: 90vw;
         grid-template-rows: 15% 75% 10%;
@@ -702,7 +702,7 @@ li {
     }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-width: 1024px) and (max-width: 1336px) {
     .heading-hero {
         font-size: 7em;
         margin: 0;
