@@ -1,8 +1,8 @@
 const info = {
     home: {
         name: "Prabhjyot Singh Dhillon",
-        designation: "Fullstack Dev",
-        location: "Navi Mumbai, India",
+        designation: "Student",
+        location: "Windsor, Ontario",
         about:
             "I work a lot on hobby projects to learn new technologies. Currently pursuing my Masters in Applied Computing from University of Windsor. Always online on Steam 🎮😀.",
     },
